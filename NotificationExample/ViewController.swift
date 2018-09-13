@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     print("send local notification")
   }
   
+  @IBAction func startTimer(_ sender: Any) {
+    print("start the notification timer")
+  }
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.

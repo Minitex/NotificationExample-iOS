@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,27 +14,64 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NotificationExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApV-ds-QcP">
-                                <rect key="frame" x="108" y="318.5" width="159" height="30"/>
-                                <state key="normal" title="Send Local Notification"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApV-ds-QcP" userLabel="Send Notification Button">
+                                <rect key="frame" x="127.66666666666669" y="298.66666666666669" width="159" height="30"/>
+                                <state key="normal" title="Send Notification NOW"/>
                                 <connections>
                                     <action selector="sendNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZyW-lU-xYW"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0Sl-rP-xKb" userLabel="Timer Segmented Control">
+                                <rect key="frame" x="97.666666666666686" y="484.33333333333331" width="219" height="28.999999999999943"/>
+                                <segments>
+                                    <segment title="None"/>
+                                    <segment title="5 Min"/>
+                                    <segment title="10 Min"/>
+                                    <segment title="15 Min"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Timer for Scheduled Notification:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6u-Kk-Ml1" userLabel="Set Timer Label">
+                                <rect key="frame" x="65.666666666666686" y="438.33333333333331" width="283" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countdown To Next Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1x-Gu-9hy">
+                                <rect key="frame" x="85.666666666666686" y="592.33333333333337" width="243" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oU6-Fv-KwW" userLabel="Start Timer Button">
+                                <rect key="frame" x="146" y="537.33333333333337" width="122" height="30"/>
+                                <state key="normal" title="Start / Stop Timer"/>
+                                <connections>
+                                    <action selector="startTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jCy-Jc-Igs"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ApV-ds-QcP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PBd-1A-b7a"/>
-                            <constraint firstItem="ApV-ds-QcP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ds0-5l-aWM"/>
+                            <constraint firstItem="f6u-Kk-Ml1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Pn-FE-67D"/>
+                            <constraint firstItem="oU6-Fv-KwW" firstAttribute="top" secondItem="0Sl-rP-xKb" secondAttribute="bottom" constant="25" id="9Ae-YI-i92"/>
+                            <constraint firstItem="O1x-Gu-9hy" firstAttribute="top" secondItem="oU6-Fv-KwW" secondAttribute="bottom" constant="25" id="GaS-Au-gJF"/>
+                            <constraint firstItem="0Sl-rP-xKb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="O3d-qn-zza"/>
+                            <constraint firstItem="0Sl-rP-xKb" firstAttribute="top" secondItem="f6u-Kk-Ml1" secondAttribute="bottom" constant="25" id="RAW-wZ-cAH"/>
+                            <constraint firstItem="O1x-Gu-9hy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XLl-hU-WKp"/>
+                            <constraint firstItem="f6u-Kk-Ml1" firstAttribute="top" secondItem="ApV-ds-QcP" secondAttribute="bottom" multiplier="4:3" id="hfe-nO-sgS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="O1x-Gu-9hy" secondAttribute="bottom" multiplier="1.2" id="jUt-3N-fuH"/>
+                            <constraint firstItem="ApV-ds-QcP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rPy-Z1-B4p"/>
+                            <constraint firstItem="oU6-Fv-KwW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wJx-pI-5JH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="40.579710144927539" y="26.086956521739133"/>
         </scene>
     </scenes>
 </document>
