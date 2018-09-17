@@ -32,6 +32,9 @@
                                     <segment title="10 Min"/>
                                     <segment title="15 Min"/>
                                 </segments>
+                                <connections>
+                                    <action selector="timeSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="zGs-2l-Ay7"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Timer for Scheduled Notification:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6u-Kk-Ml1" userLabel="Set Timer Label">
                                 <rect key="frame" x="65.666666666666686" y="438.33333333333331" width="283" height="21"/>
@@ -39,15 +42,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countdown To Next Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1x-Gu-9hy">
-                                <rect key="frame" x="85.666666666666686" y="592.33333333333337" width="243" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1x-Gu-9hy">
+                                <rect key="frame" x="194.33333333333334" y="592.33333333333337" width="25.333333333333343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oU6-Fv-KwW" userLabel="Start Timer Button">
-                                <rect key="frame" x="146" y="537.33333333333337" width="122" height="30"/>
-                                <state key="normal" title="Start / Stop Timer"/>
+                                <rect key="frame" x="168.66666666666666" y="537.33333333333337" width="77" height="30"/>
+                                <state key="normal" title="Start Timer"/>
                                 <connections>
                                     <action selector="startTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jCy-Jc-Igs"/>
                                 </connections>
@@ -68,6 +71,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="timerButton" destination="oU6-Fv-KwW" id="sMy-Xo-Bcz"/>
+                        <outlet property="timerLabel" destination="O1x-Gu-9hy" id="vaL-cl-xil"/>
+                        <outlet property="timerSegmentControl" destination="0Sl-rP-xKb" id="cKo-nV-1B4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
