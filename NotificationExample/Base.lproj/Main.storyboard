@@ -25,12 +25,13 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0Sl-rP-xKb" userLabel="Timer Segmented Control">
-                                <rect key="frame" x="97.666666666666686" y="484.33333333333331" width="219" height="28.999999999999943"/>
+                                <rect key="frame" x="62.666666666666657" y="484.33333333333331" width="289" height="28.999999999999943"/>
                                 <segments>
                                     <segment title="None"/>
+                                    <segment title="30 Sec"/>
+                                    <segment title="1 Min"/>
                                     <segment title="5 Min"/>
                                     <segment title="10 Min"/>
-                                    <segment title="15 Min"/>
                                 </segments>
                                 <connections>
                                     <action selector="timeSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="zGs-2l-Ay7"/>
@@ -52,7 +53,14 @@
                                 <rect key="frame" x="168.66666666666666" y="537.33333333333337" width="77" height="30"/>
                                 <state key="normal" title="Start Timer"/>
                                 <connections>
-                                    <action selector="startTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jCy-Jc-Igs"/>
+                                    <action selector="startStopTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jCy-Jc-Igs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haW-gn-0SH">
+                                <rect key="frame" x="115.66666666666669" y="232" width="183" height="30"/>
+                                <state key="normal" title="Print Pending Notifications"/>
+                                <connections>
+                                    <action selector="printPendingNotifications:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zJm-71-grB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -64,6 +72,8 @@
                             <constraint firstItem="0Sl-rP-xKb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="O3d-qn-zza"/>
                             <constraint firstItem="0Sl-rP-xKb" firstAttribute="top" secondItem="f6u-Kk-Ml1" secondAttribute="bottom" constant="25" id="RAW-wZ-cAH"/>
                             <constraint firstItem="O1x-Gu-9hy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XLl-hU-WKp"/>
+                            <constraint firstItem="ApV-ds-QcP" firstAttribute="top" secondItem="haW-gn-0SH" secondAttribute="bottom" constant="36.666666666666686" id="Yvj-Lq-96J"/>
+                            <constraint firstItem="haW-gn-0SH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ewp-kF-vzH"/>
                             <constraint firstItem="f6u-Kk-Ml1" firstAttribute="top" secondItem="ApV-ds-QcP" secondAttribute="bottom" multiplier="4:3" id="hfe-nO-sgS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="O1x-Gu-9hy" secondAttribute="bottom" multiplier="1.2" id="jUt-3N-fuH"/>
                             <constraint firstItem="ApV-ds-QcP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rPy-Z1-B4p"/>
