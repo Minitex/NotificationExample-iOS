@@ -19,6 +19,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
   var timerIsOn = false
   var timeRemaining: Double = 0
   var timeSelected: Double = 0
+  var dueDate: Date = Date()
 
   // MARK: Outlets
   @IBOutlet weak var timerSegmentControl: UISegmentedControl!
@@ -26,6 +27,19 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
   @IBOutlet weak var timerLabel: UILabel!
 
   // MARK: Actions
+  @IBAction func pollServer(_ sender: Any) {
+    dueDate = ServerData().pollServer()
+    print("Due date is: \(dueDate)")
+    let alert = UIAlertController(title: "Book Due Date", message: dueDate.description, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+      NSLog("The \"OK\" alert occurred.")
+    }))
+    alert.addAction(UIAlertAction(title: NSLocalizedString("Send Notification", comment: "Send Notification"), style: .default, handler: { _ in
+      NSLog("Sending a notification!")
+    }))
+    self.present(alert, animated: true, completion: nil)
+  }
+  
   @IBAction func printPendingNotifications(_ sender: Any) {
     UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { requests in
       print("About to print some pending notifications, yo!")

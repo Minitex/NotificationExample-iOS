@@ -63,6 +63,13 @@
                                     <action selector="printPendingNotifications:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zJm-71-grB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHw-wH-G8Z">
+                                <rect key="frame" x="150" y="162" width="114" height="30"/>
+                                <state key="normal" title="Poll Server NOW"/>
+                                <connections>
+                                    <action selector="pollServer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hJW-wc-ZrP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -70,6 +77,7 @@
                             <constraint firstItem="oU6-Fv-KwW" firstAttribute="top" secondItem="0Sl-rP-xKb" secondAttribute="bottom" constant="25" id="9Ae-YI-i92"/>
                             <constraint firstItem="O1x-Gu-9hy" firstAttribute="top" secondItem="oU6-Fv-KwW" secondAttribute="bottom" constant="25" id="GaS-Au-gJF"/>
                             <constraint firstItem="0Sl-rP-xKb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="O3d-qn-zza"/>
+                            <constraint firstItem="zHw-wH-G8Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qvy-25-QdT"/>
                             <constraint firstItem="0Sl-rP-xKb" firstAttribute="top" secondItem="f6u-Kk-Ml1" secondAttribute="bottom" constant="25" id="RAW-wZ-cAH"/>
                             <constraint firstItem="O1x-Gu-9hy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XLl-hU-WKp"/>
                             <constraint firstItem="ApV-ds-QcP" firstAttribute="top" secondItem="haW-gn-0SH" secondAttribute="bottom" constant="36.666666666666686" id="Yvj-Lq-96J"/>
@@ -77,6 +85,7 @@
                             <constraint firstItem="f6u-Kk-Ml1" firstAttribute="top" secondItem="ApV-ds-QcP" secondAttribute="bottom" multiplier="4:3" id="hfe-nO-sgS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="O1x-Gu-9hy" secondAttribute="bottom" multiplier="1.2" id="jUt-3N-fuH"/>
                             <constraint firstItem="ApV-ds-QcP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rPy-Z1-B4p"/>
+                            <constraint firstItem="haW-gn-0SH" firstAttribute="top" secondItem="zHw-wH-G8Z" secondAttribute="bottom" constant="40" id="toL-fx-PbN"/>
                             <constraint firstItem="oU6-Fv-KwW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wJx-pI-5JH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
