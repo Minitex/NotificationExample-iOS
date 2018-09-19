@@ -11,32 +11,31 @@ import UserNotifications
 
 class ViewController: UIViewController, UNUserNotificationCenterDelegate {
 
-  enum NotificationTimes: Int {
-    case none = 0, half, one, five, ten, fifteen
+  enum AvailabilityTimes: Int {
+    case now = 0, thirtySeconds, oneMinute, fiveMinutes, oneDay, threeDays, sevenDays
   }
 
-  var timer = Timer()
-  var timerIsOn = false
-  var timeRemaining: Double = 0
-  var timeSelected: Double = 0
-  var dueDate: Date = Date()
+  //var timeSelected: Double = 0
+  var availabilityDate: Date = Date()
   let notificationCenter = UNUserNotificationCenter.current()
 
   // MARK: Outlets
-  @IBOutlet weak var timerSegmentControl: UISegmentedControl!
-  @IBOutlet weak var timerButton: UIButton!
-  @IBOutlet weak var timerLabel: UILabel!
-
+  @IBOutlet weak var availabilitySegmentControl: UISegmentedControl!
+  @IBOutlet weak var availabilityDateLabel: UILabel!
+  
   // MARK: Actions
+  @IBAction func changeAvailabilityDate(_ sender: Any) {
+    // now, change the book availability depending on segment control
+  }
+
   @IBAction func pollServer(_ sender: Any) {
-    dueDate = ServerData().pollServer()
-    print("Due date is: \(dueDate)")
-    let alert = UIAlertController(title: "Book Due Date", message: dueDate.description, preferredStyle: .alert)
+    let alert = UIAlertController(title: "Book Due Date", message: availabilityDate.description, preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-      NSLog("The \"OK\" alert occurred.")
+      print("The \"OK\" alert occurred.")
     }))
     alert.addAction(UIAlertAction(title: NSLocalizedString("Send Notification", comment: "Send Notification"), style: .default, handler: { _ in
-      NSLog("Sending a notification!")
+      print("Sending a notification!")
+      self.createNotification()
     }))
     self.present(alert, animated: true, completion: nil)
   }
@@ -50,85 +49,22 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     })
   }
 
-
-  @IBAction func timeSelected(_ sender: Any) {
-    var minutes: Double = 0
-    switch(timerSegmentControl.selectedSegmentIndex) {
-    case NotificationTimes.none.rawValue:
-      print("none selected")
-    case NotificationTimes.half.rawValue:
-      print("half minute selected")
-      minutes = 0.5
-    case NotificationTimes.one.rawValue:
-      print("one selected")
-      minutes = 1
-    case NotificationTimes.five.rawValue:
-      print("five selected")
-      minutes = 5
-    case NotificationTimes.ten.rawValue:
-      print("ten selected")
-      minutes = 10
-    case NotificationTimes.fifteen.rawValue:
-      print("fifteen selected")
-      minutes = 15
-    default:
-      print("none selected")
-    }
-
-    // totalTime in seconds
-    timeSelected = 60 * minutes
-    displayTimerRunning(timeSelected)
-  }
-
-
   @IBAction func sendNotification(_ sender: Any) {
     print("send local notification")
     createNotification()
-  }
-  
-  @IBAction func startStopTimer(_ sender: Any) {
-
-    // this is where we start the timer going and submit the notification request
-    // allow the timer to continue when app is backgrounded as well
-    // I actually have NO idea how well this timer display idea will work, when app is in the background
-    // also, don't know if we can cancel a notification request once it's sent
-    if timerIsOn == true {
-      timerSegmentControl.isEnabled = true
-      for state: UIControl.State in [.normal, .highlighted, .disabled, .selected, .focused, .application, .reserved] {
-        timerButton.setTitle("Start Timer", for: state)
-      }
-      timer.invalidate()
-      timerIsOn = false
-      print("stopped the notification timer")
-    } else {
-      if timeSelected == 0 { return }
-      timerSegmentControl.isEnabled = false
-      for state: UIControl.State in [.normal, .highlighted, .disabled, .selected, .focused, .application, .reserved] {
-        timerButton.setTitle("Stop Timer", for: state)
-      }
-
-      timeRemaining = timeSelected
-
-      // it does not make sense to pass the timer code as the completion handler for the notification
-      createNotification(timeSeconds: Int(timeRemaining), repeat: false, completionHandler: nil)
-      timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerRunning), userInfo: nil, repeats: true)
-      timerIsOn = true
-      print("started the notification timer")
-    }
   }
 
   // MARK: ViewController
   override func viewDidLoad() {
     super.viewDidLoad()
 
-
-    for state: UIControl.State in [.normal, .highlighted, .disabled, .selected, .focused, .application, .reserved] {
-      timerButton.setTitle("Start Timer", for: state)
-    }
-
     // request for user authorization
     notificationCenter.requestAuthorization(options: [.alert, .sound], completionHandler: {didAllow, error in
     })
+
+    availabilityDate = ServerData().pollServer()
+    print("Due date is: \(availabilityDate)")
+    availabilityDateLabel.text = "Availability Date: " + availabilityDate.description
   }
 
   // MARK: UNUserNotificationCenterDelegate
@@ -140,27 +76,12 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
   }
 
   // MARK: helper functions
-  func displayTimerRunning(_ remainingTime: Double) -> Void {
-    let minutesLeft = Int(remainingTime) / 60 % 60
-    let secondsLeft = Int(remainingTime) % 60
-    timerLabel.text = "\(minutesLeft):\(secondsLeft)"
-  }
-
-  @objc func timerRunning() -> Void {
-    timeRemaining -= 1
-    displayTimerRunning(timeRemaining)
-    if timeRemaining == 0 {
-      timerIsOn = true
-      startStopTimer(self)
-    }
-  }
-
   func createNotification(timeSeconds: Int = 3, repeat: Bool = false, completionHandler: (() -> Void)? = nil) -> Void {
     let content = UNMutableNotificationContent()
 
     //adding title, subtitle, body and badge
-    content.title = "Book Ready to Check Out"
-    content.subtitle = "Book Title Ready to Check Out"
+    content.title = "Book Title Ready to Check Out"
+    content.subtitle = "Availability Date: " + availabilityDate.description
     content.body = "You'll Have the Option to Check Out Book from Here Later"
     content.badge = 1
 

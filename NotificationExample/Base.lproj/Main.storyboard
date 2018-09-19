@@ -24,38 +24,6 @@
                                     <action selector="sendNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZyW-lU-xYW"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0Sl-rP-xKb" userLabel="Timer Segmented Control">
-                                <rect key="frame" x="62.666666666666657" y="484.33333333333331" width="289" height="28.999999999999943"/>
-                                <segments>
-                                    <segment title="None"/>
-                                    <segment title="30 Sec"/>
-                                    <segment title="1 Min"/>
-                                    <segment title="5 Min"/>
-                                    <segment title="10 Min"/>
-                                </segments>
-                                <connections>
-                                    <action selector="timeSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="zGs-2l-Ay7"/>
-                                </connections>
-                            </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Timer for Scheduled Notification:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6u-Kk-Ml1" userLabel="Set Timer Label">
-                                <rect key="frame" x="65.666666666666686" y="438.33333333333331" width="283" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1x-Gu-9hy">
-                                <rect key="frame" x="194.33333333333334" y="592.33333333333337" width="25.333333333333343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oU6-Fv-KwW" userLabel="Start Timer Button">
-                                <rect key="frame" x="168.66666666666666" y="537.33333333333337" width="77" height="30"/>
-                                <state key="normal" title="Start Timer"/>
-                                <connections>
-                                    <action selector="startStopTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jCy-Jc-Igs"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haW-gn-0SH">
                                 <rect key="frame" x="115.66666666666669" y="232" width="183" height="30"/>
                                 <state key="normal" title="Print Pending Notifications"/>
@@ -70,30 +38,55 @@
                                     <action selector="pollServer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hJW-wc-ZrP"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Book Availability Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gX-Ba-osb">
+                                <rect key="frame" x="90.666666666666686" y="407" width="233" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="6" translatesAutoresizingMaskIntoConstraints="NO" id="fDA-ef-AxL">
+                                <rect key="frame" x="4.6666666666666572" y="448" width="405" height="29"/>
+                                <segments>
+                                    <segment title="Now"/>
+                                    <segment title="30 Sec"/>
+                                    <segment title="1 Min"/>
+                                    <segment title="5 Min"/>
+                                    <segment title="1 Day"/>
+                                    <segment title="3 Days"/>
+                                    <segment title="7 Days"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeAvailabilityDate:" destination="BYZ-38-t0r" eventType="valueChanged" id="v2Q-Rn-ymJ"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Availability Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVH-8N-0vX">
+                                <rect key="frame" x="142.33333333333337" y="525" width="129.66666666666663" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="f6u-Kk-Ml1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Pn-FE-67D"/>
-                            <constraint firstItem="oU6-Fv-KwW" firstAttribute="top" secondItem="0Sl-rP-xKb" secondAttribute="bottom" constant="25" id="9Ae-YI-i92"/>
-                            <constraint firstItem="O1x-Gu-9hy" firstAttribute="top" secondItem="oU6-Fv-KwW" secondAttribute="bottom" constant="25" id="GaS-Au-gJF"/>
-                            <constraint firstItem="0Sl-rP-xKb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="O3d-qn-zza"/>
+                            <constraint firstItem="fDA-ef-AxL" firstAttribute="top" secondItem="7gX-Ba-osb" secondAttribute="bottom" constant="20" id="8Kj-gH-VXp"/>
+                            <constraint firstItem="zHw-wH-G8Z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="142" id="9kk-nj-H0r"/>
+                            <constraint firstItem="7gX-Ba-osb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MK7-HL-Xfe"/>
+                            <constraint firstItem="fDA-ef-AxL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Om5-tC-rIa"/>
                             <constraint firstItem="zHw-wH-G8Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qvy-25-QdT"/>
-                            <constraint firstItem="0Sl-rP-xKb" firstAttribute="top" secondItem="f6u-Kk-Ml1" secondAttribute="bottom" constant="25" id="RAW-wZ-cAH"/>
-                            <constraint firstItem="O1x-Gu-9hy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XLl-hU-WKp"/>
+                            <constraint firstItem="7gX-Ba-osb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WrW-4E-Y04"/>
                             <constraint firstItem="ApV-ds-QcP" firstAttribute="top" secondItem="haW-gn-0SH" secondAttribute="bottom" constant="36.666666666666686" id="Yvj-Lq-96J"/>
                             <constraint firstItem="haW-gn-0SH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ewp-kF-vzH"/>
-                            <constraint firstItem="f6u-Kk-Ml1" firstAttribute="top" secondItem="ApV-ds-QcP" secondAttribute="bottom" multiplier="4:3" id="hfe-nO-sgS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="O1x-Gu-9hy" secondAttribute="bottom" multiplier="1.2" id="jUt-3N-fuH"/>
+                            <constraint firstItem="oVH-8N-0vX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lIp-ze-qg6"/>
+                            <constraint firstItem="oVH-8N-0vX" firstAttribute="top" secondItem="fDA-ef-AxL" secondAttribute="bottom" constant="49" id="lZf-ps-cSr"/>
+                            <constraint firstItem="7gX-Ba-osb" firstAttribute="top" secondItem="ApV-ds-QcP" secondAttribute="bottom" constant="78.333333333333314" id="mZz-ZB-dgN"/>
                             <constraint firstItem="ApV-ds-QcP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rPy-Z1-B4p"/>
                             <constraint firstItem="haW-gn-0SH" firstAttribute="top" secondItem="zHw-wH-G8Z" secondAttribute="bottom" constant="40" id="toL-fx-PbN"/>
-                            <constraint firstItem="oU6-Fv-KwW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wJx-pI-5JH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="timerButton" destination="oU6-Fv-KwW" id="sMy-Xo-Bcz"/>
-                        <outlet property="timerLabel" destination="O1x-Gu-9hy" id="vaL-cl-xil"/>
-                        <outlet property="timerSegmentControl" destination="0Sl-rP-xKb" id="cKo-nV-1B4"/>
+                        <outlet property="availabilityDateLabel" destination="oVH-8N-0vX" id="SOP-u9-KLT"/>
+                        <outlet property="availabilitySegmentControl" destination="fDA-ef-AxL" id="X8H-tg-XX3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
