@@ -20,6 +20,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
   var timeRemaining: Double = 0
   var timeSelected: Double = 0
   var dueDate: Date = Date()
+  let notificationCenter = UNUserNotificationCenter.current()
 
   // MARK: Outlets
   @IBOutlet weak var timerSegmentControl: UISegmentedControl!
@@ -126,8 +127,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     }
 
     // request for user authorization
-    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
-
+    notificationCenter.requestAuthorization(options: [.alert, .sound], completionHandler: {didAllow, error in
     })
   }
 
@@ -175,6 +175,11 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
 
     //adding the notification to notification center
     UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+  }
+
+  // based on the availability date, schedule the next notification
+  private func scheduleNextNotification(availabilityDate: Date) -> Void {
+
   }
 }
 

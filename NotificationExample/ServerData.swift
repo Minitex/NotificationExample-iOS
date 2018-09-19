@@ -11,33 +11,32 @@ import Foundation
 class ServerData {
 
   var lastServerCheck: Date = Date()
-  var dueDate: Date = Date()
+  var availabilityDate: Date?
   let daysFromNow = 7
-  let yearsFromNow = 0
   let monthsFromNow = 0
+  let yearsFromNow = 0
+  let minutes = 0
+  let seconds = 0
 
-  func getServerData() {
-
-  }
 
   func pollServer() -> Date {
     print("polling server")
-    return dueDate
+    return availabilityDate ?? calculateAvailabilityDate()
   }
 
   init() {
-    calculateDueDate()
   }
 
   // let's set the due data to some days from now
-  private func calculateDueDate() {
+  private func calculateAvailabilityDate() -> Date {
     let currentDate = Date()
     var dateComponents = DateComponents()
     dateComponents.year = yearsFromNow
     dateComponents.month = monthsFromNow
     dateComponents.day = daysFromNow
 
-    dueDate = Calendar.current.date(byAdding: dateComponents, to: currentDate) ?? Date()
+    availabilityDate = Calendar.current.date(byAdding: dateComponents, to: currentDate)
+    return availabilityDate ?? Date()
   }
 
   private func getLastPollingTime() {
