@@ -57,12 +57,14 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
   }
   
   @IBAction func printPendingNotifications(_ sender: Any) {
+    /*
     print("About to show some pending notifications, yo!")
     UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { requests in
       for request in requests {
         print(request)
       }
     })
+ */
   }
 
   @IBAction func sendNotification(_ sender: Any) {
