@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="o3B-0N-xYj">
-                                <rect key="frame" x="33.666666666666657" y="196.33333333333334" width="347" height="343.66666666666663"/>
+                                <rect key="frame" x="90.666666666666686" y="196.33333333333334" width="233" height="343.66666666666663"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="KsC-o4-1Na">
-                                        <rect key="frame" x="79.333333333333343" y="0.0" width="188.00000000000003" height="140"/>
+                                        <rect key="frame" x="22.333333333333329" y="0.0" width="188" height="140"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haW-gn-0SH">
                                                 <rect key="frame" x="0.0" y="0.0" width="188" height="30"/>
@@ -48,20 +48,18 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="TGt-69-yuP">
-                                        <rect key="frame" x="0.0" y="170" width="347" height="173.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="170" width="233" height="173.66666666666663"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Book Availability Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gX-Ba-osb">
-                                                <rect key="frame" x="57.333333333333329" y="0.0" width="232.33333333333337" height="20.333333333333332"/>
+                                                <rect key="frame" x="0.3333333333333286" y="0.0" width="232.33333333333337" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="fDA-ef-AxL">
-                                                <rect key="frame" x="0.0" y="45.333333333333371" width="347" height="29"/>
+                                                <rect key="frame" x="3" y="45.333333333333371" width="227" height="29"/>
                                                 <segments>
-                                                    <segment title="30 Sec"/>
-                                                    <segment title="1 Min"/>
-                                                    <segment title="5 Min"/>
+                                                    <segment title="Today"/>
                                                     <segment title="1 Day"/>
                                                     <segment title="3 Days"/>
                                                     <segment title="7 Days"/>
@@ -71,14 +69,17 @@
                                                 </connections>
                                             </segmentedControl>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Availability Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVH-8N-0vX">
-                                                <rect key="frame" x="108.66666666666667" y="98.333333333333371" width="129.66666666666663" height="20.333333333333329"/>
+                                                <rect key="frame" x="51.666666666666671" y="98.333333333333371" width="129.66666666666663" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnl-6J-rKS">
-                                                <rect key="frame" x="57" y="143.66666666666669" width="233" height="30"/>
+                                                <rect key="frame" x="0.0" y="143.66666666666669" width="233" height="30"/>
                                                 <state key="normal" title="Add Date to Notification Schedule"/>
+                                                <connections>
+                                                    <action selector="addDateToSchedule:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4PJ-Mi-rpr"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -105,7 +106,7 @@
         <!--Notification Table View Controller-->
         <scene sceneID="QWM-Mo-9IP">
             <objects>
-                <tableViewController id="Bm7-2r-iBL" userLabel="Notification Table View Controller" sceneMemberID="viewController">
+                <tableViewController id="Bm7-2r-iBL" userLabel="Notification Table View Controller" customClass="NotificationTableViewController" customModule="NotificationExample" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nbI-pT-4af">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

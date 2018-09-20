@@ -12,10 +12,9 @@ import UserNotifications
 class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
 
   enum AvailabilityTimes: Int {
-    case now = 0, thirtySeconds, oneMinute, fiveMinutes, oneDay, threeDays, sevenDays
+    case today = 0, oneDay, threeDays, sevenDays
   }
 
-  //var timeSelected: Double = 0
   var availabilityDate: Date = Date()
   let notificationCenter = UNUserNotificationCenter.current()
 
@@ -24,6 +23,10 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
   @IBOutlet weak var availabilityDateLabel: UILabel!
   
   // MARK: Actions
+  @IBAction func addDateToSchedule(_ sender: Any) {
+    print("adding to notifications schedule")
+  }
+
   @IBAction func changeAvailabilityDate(_ sender: Any) {
     // now, change the book availability depending on segment control
   }
@@ -41,8 +44,8 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
   }
   
   @IBAction func printPendingNotifications(_ sender: Any) {
+    print("About to show some pending notifications, yo!")
     UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { requests in
-      print("About to print some pending notifications, yo!")
       for request in requests {
         print(request)
       }
