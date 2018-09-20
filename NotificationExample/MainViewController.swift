@@ -25,10 +25,23 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
   // MARK: Actions
   @IBAction func addDateToSchedule(_ sender: Any) {
     print("adding to notifications schedule")
-  }
-
-  @IBAction func changeAvailabilityDate(_ sender: Any) {
-    // now, change the book availability depending on segment control
+    switch (availabilitySegmentControl.selectedSegmentIndex) {
+    case AvailabilityTimes.today.rawValue:
+      print("today")
+      createNotification()
+    case AvailabilityTimes.oneDay.rawValue:
+      print("one day")
+      createNotification(days: 1)
+    case AvailabilityTimes.threeDays.rawValue:
+      print("three days")
+      createNotification(days: 3)
+    case AvailabilityTimes.sevenDays.rawValue:
+      print("seven days")
+      createNotification(days: 7)
+    default:
+      print("none of these")
+      createNotification()
+    }
   }
 
   @IBAction func pollServer(_ sender: Any) {
@@ -79,31 +92,35 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
   }
 
   // MARK: helper functions
-  func createNotification(timeSeconds: Int = 3, repeat: Bool = false, completionHandler: (() -> Void)? = nil) -> Void {
+  func createNotification(days: Int = 0) -> Void {
     let content = UNMutableNotificationContent()
 
-    //adding title, subtitle, body and badge
+    // adding title, subtitle, body and badge
     content.title = "Book Title Ready to Check Out"
     content.subtitle = "Availability Date: " + availabilityDate.description
     content.body = "You'll Have the Option to Check Out Book from Here Later"
     content.badge = 1
 
-    //getting the notification trigger
-    //it will be called after X seconds
-    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(timeSeconds), repeats: false)
+    // getting the notification trigger
+    // it will be called after X seconds or X many days
+    // no repeat
+    var trigger: UNNotificationTrigger?
+    if days > 0 {
+      var futureDate = DateComponents()
+      futureDate.day = days
+      trigger = UNCalendarNotificationTrigger(dateMatching: futureDate, repeats: false)
+    } else {
+      let seconds = 3
+      trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds), repeats: false)
+    }
 
-    //getting the notification request
+    // getting the notification request
     let request = UNNotificationRequest(identifier: "SimplyEIOSNotification", content: content, trigger: trigger)
 
     UNUserNotificationCenter.current().delegate = self
 
-    //adding the notification to notification center
+    // adding the notification to notification center
     UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-  }
-
-  // based on the availability date, schedule the next notification
-  private func scheduleNextNotification(availabilityDate: Date) -> Void {
-
   }
 }
 

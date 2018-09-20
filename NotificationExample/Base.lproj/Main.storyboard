@@ -56,7 +56,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="fDA-ef-AxL">
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="3" translatesAutoresizingMaskIntoConstraints="NO" id="fDA-ef-AxL">
                                                 <rect key="frame" x="3" y="45.333333333333371" width="227" height="29"/>
                                                 <segments>
                                                     <segment title="Today"/>
@@ -64,9 +64,6 @@
                                                     <segment title="3 Days"/>
                                                     <segment title="7 Days"/>
                                                 </segments>
-                                                <connections>
-                                                    <action selector="changeAvailabilityDate:" destination="BYZ-38-t0r" eventType="valueChanged" id="v2Q-Rn-ymJ"/>
-                                                </connections>
                                             </segmentedControl>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Availability Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVH-8N-0vX">
                                                 <rect key="frame" x="51.666666666666671" y="98.333333333333371" width="129.66666666666663" height="20.333333333333329"/>
