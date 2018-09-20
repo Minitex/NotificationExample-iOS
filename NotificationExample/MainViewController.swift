@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  NotificationExample
 //
 //  Created by Vui Nguyen on 9/12/18.
@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class ViewController: UIViewController, UNUserNotificationCenterDelegate {
+class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
 
   enum AvailabilityTimes: Int {
     case now = 0, thirtySeconds, oneMinute, fiveMinutes, oneDay, threeDays, sevenDays

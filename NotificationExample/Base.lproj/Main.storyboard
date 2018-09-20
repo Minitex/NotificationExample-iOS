@@ -1,95 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vnt-c5-WtM">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NotificationExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="NotificationExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApV-ds-QcP" userLabel="Send Notification Button">
-                                <rect key="frame" x="127.66666666666669" y="298.66666666666669" width="159" height="30"/>
-                                <state key="normal" title="Send Notification NOW"/>
-                                <connections>
-                                    <action selector="sendNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZyW-lU-xYW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haW-gn-0SH">
-                                <rect key="frame" x="115.66666666666669" y="232" width="183" height="30"/>
-                                <state key="normal" title="Print Pending Notifications"/>
-                                <connections>
-                                    <action selector="printPendingNotifications:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zJm-71-grB"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHw-wH-G8Z">
-                                <rect key="frame" x="150" y="162" width="114" height="30"/>
-                                <state key="normal" title="Poll Server NOW"/>
-                                <connections>
-                                    <action selector="pollServer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hJW-wc-ZrP"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Book Availability Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gX-Ba-osb">
-                                <rect key="frame" x="90.666666666666686" y="407" width="233" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="6" translatesAutoresizingMaskIntoConstraints="NO" id="fDA-ef-AxL">
-                                <rect key="frame" x="4.6666666666666572" y="448" width="405" height="29"/>
-                                <segments>
-                                    <segment title="Now"/>
-                                    <segment title="30 Sec"/>
-                                    <segment title="1 Min"/>
-                                    <segment title="5 Min"/>
-                                    <segment title="1 Day"/>
-                                    <segment title="3 Days"/>
-                                    <segment title="7 Days"/>
-                                </segments>
-                                <connections>
-                                    <action selector="changeAvailabilityDate:" destination="BYZ-38-t0r" eventType="valueChanged" id="v2Q-Rn-ymJ"/>
-                                </connections>
-                            </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Availability Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVH-8N-0vX">
-                                <rect key="frame" x="142.33333333333337" y="525" width="129.66666666666663" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="o3B-0N-xYj">
+                                <rect key="frame" x="33.666666666666657" y="196.33333333333334" width="347" height="343.66666666666663"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="KsC-o4-1Na">
+                                        <rect key="frame" x="79.333333333333343" y="0.0" width="188.00000000000003" height="140"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haW-gn-0SH">
+                                                <rect key="frame" x="0.0" y="0.0" width="188" height="30"/>
+                                                <state key="normal" title="Show Pending Notifications"/>
+                                                <connections>
+                                                    <action selector="printPendingNotifications:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zJm-71-grB"/>
+                                                    <segue destination="Bm7-2r-iBL" kind="show" id="jDL-gM-kIn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHw-wH-G8Z">
+                                                <rect key="frame" x="37" y="55" width="114" height="30"/>
+                                                <state key="normal" title="Poll Server NOW"/>
+                                                <connections>
+                                                    <action selector="pollServer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hJW-wc-ZrP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApV-ds-QcP" userLabel="Send Notification Button">
+                                                <rect key="frame" x="14.666666666666671" y="109.99999999999997" width="159" height="30"/>
+                                                <state key="normal" title="Send Notification NOW"/>
+                                                <connections>
+                                                    <action selector="sendNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZyW-lU-xYW"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="TGt-69-yuP">
+                                        <rect key="frame" x="0.0" y="170" width="347" height="173.66666666666663"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Book Availability Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gX-Ba-osb">
+                                                <rect key="frame" x="57.333333333333329" y="0.0" width="232.33333333333337" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="fDA-ef-AxL">
+                                                <rect key="frame" x="0.0" y="45.333333333333371" width="347" height="29"/>
+                                                <segments>
+                                                    <segment title="30 Sec"/>
+                                                    <segment title="1 Min"/>
+                                                    <segment title="5 Min"/>
+                                                    <segment title="1 Day"/>
+                                                    <segment title="3 Days"/>
+                                                    <segment title="7 Days"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="changeAvailabilityDate:" destination="BYZ-38-t0r" eventType="valueChanged" id="v2Q-Rn-ymJ"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Availability Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVH-8N-0vX">
+                                                <rect key="frame" x="108.66666666666667" y="98.333333333333371" width="129.66666666666663" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnl-6J-rKS">
+                                                <rect key="frame" x="57" y="143.66666666666669" width="233" height="30"/>
+                                                <state key="normal" title="Add Date to Notification Schedule"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="fDA-ef-AxL" firstAttribute="top" secondItem="7gX-Ba-osb" secondAttribute="bottom" constant="20" id="8Kj-gH-VXp"/>
-                            <constraint firstItem="zHw-wH-G8Z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="142" id="9kk-nj-H0r"/>
-                            <constraint firstItem="7gX-Ba-osb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MK7-HL-Xfe"/>
-                            <constraint firstItem="fDA-ef-AxL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Om5-tC-rIa"/>
-                            <constraint firstItem="zHw-wH-G8Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qvy-25-QdT"/>
-                            <constraint firstItem="7gX-Ba-osb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WrW-4E-Y04"/>
-                            <constraint firstItem="ApV-ds-QcP" firstAttribute="top" secondItem="haW-gn-0SH" secondAttribute="bottom" constant="36.666666666666686" id="Yvj-Lq-96J"/>
-                            <constraint firstItem="haW-gn-0SH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ewp-kF-vzH"/>
-                            <constraint firstItem="oVH-8N-0vX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lIp-ze-qg6"/>
-                            <constraint firstItem="oVH-8N-0vX" firstAttribute="top" secondItem="fDA-ef-AxL" secondAttribute="bottom" constant="49" id="lZf-ps-cSr"/>
-                            <constraint firstItem="7gX-Ba-osb" firstAttribute="top" secondItem="ApV-ds-QcP" secondAttribute="bottom" constant="78.333333333333314" id="mZz-ZB-dgN"/>
-                            <constraint firstItem="ApV-ds-QcP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rPy-Z1-B4p"/>
-                            <constraint firstItem="haW-gn-0SH" firstAttribute="top" secondItem="zHw-wH-G8Z" secondAttribute="bottom" constant="40" id="toL-fx-PbN"/>
+                            <constraint firstItem="o3B-0N-xYj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="skX-tJ-5Eg"/>
+                            <constraint firstItem="o3B-0N-xYj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zH1-Pa-tOc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="pDP-td-Chu"/>
                     <connections>
                         <outlet property="availabilityDateLabel" destination="oVH-8N-0vX" id="SOP-u9-KLT"/>
                         <outlet property="availabilitySegmentControl" destination="fDA-ef-AxL" id="X8H-tg-XX3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="947.82608695652186" y="26.086956521739133"/>
+        </scene>
+        <!--Notification Table View Controller-->
+        <scene sceneID="QWM-Mo-9IP">
+            <objects>
+                <tableViewController id="Bm7-2r-iBL" userLabel="Notification Table View Controller" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nbI-pT-4af">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2ou-eN-pUB">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2ou-eN-pUB" id="r3b-Yt-iQ5">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Bm7-2r-iBL" id="Eqw-FX-lYc"/>
+                            <outlet property="delegate" destination="Bm7-2r-iBL" id="39c-C4-p1c"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dOU-u1-jfs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1684" y="27"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aY0-ye-C9p">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vnt-c5-WtM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3OD-Ea-bEE">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="07g-1Y-cRe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VGJ-Ev-Pgr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="40.579710144927539" y="26.086956521739133"/>
         </scene>
