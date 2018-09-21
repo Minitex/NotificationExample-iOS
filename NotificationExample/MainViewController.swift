@@ -117,7 +117,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
     }
 
     // getting the notification request
-    let request = UNNotificationRequest(identifier: "SimplyEIOSNotification", content: content, trigger: trigger)
+    let request = UNNotificationRequest(identifier: "SimplyEIOSNotification_" + Date().description, content: content, trigger: trigger)
 
     UNUserNotificationCenter.current().delegate = self
 
