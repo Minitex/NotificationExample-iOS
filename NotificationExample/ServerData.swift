@@ -39,6 +39,18 @@ class ServerData {
     return availabilityDate ?? Date()
   }
 
+  func updateAvailabilityDate(updateDate: Date) -> Void {
+    availabilityDate = updateDate
+
+    // and then save to info.plist?
+  }
+
+  // from info.plist?
+  private func getSavedAvailabilityDate() {
+
+  }
+
+  // from info.plist
   private func getLastPollingTime() {
 
   }

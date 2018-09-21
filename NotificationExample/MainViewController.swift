@@ -17,6 +17,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
 
   var availabilityDate: Date = Date()
   let notificationCenter = UNUserNotificationCenter.current()
+  let server = ServerData()
 
   // MARK: Outlets
   @IBOutlet weak var availabilitySegmentControl: UISegmentedControl!
@@ -80,7 +81,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
     notificationCenter.requestAuthorization(options: [.alert, .sound], completionHandler: {didAllow, error in
     })
 
-    availabilityDate = ServerData().pollServer()
+    availabilityDate = server.pollServer()
     print("Due date is: \(availabilityDate)")
     availabilityDateLabel.text = getAvailabilityDateText()
   }
@@ -111,6 +112,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
       if let newAvailabilityDate = Calendar.current.date(byAdding: dateComponents, to: currentDate) {
         availabilityDate = newAvailabilityDate
         availabilityDateLabel.text = getAvailabilityDateText()
+        server.updateAvailabilityDate(updateDate: availabilityDate)
       }
     } else {
       let seconds = 3
