@@ -82,7 +82,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
 
     availabilityDate = ServerData().pollServer()
     print("Due date is: \(availabilityDate)")
-    availabilityDateLabel.text = "Availability Date: " + availabilityDate.description
+    availabilityDateLabel.text = getAvailabilityDateText()
   }
 
   // MARK: UNUserNotificationCenterDelegate
@@ -110,7 +110,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
       dateComponents.day = days
       if let newAvailabilityDate = Calendar.current.date(byAdding: dateComponents, to: currentDate) {
         availabilityDate = newAvailabilityDate
-        availabilityDateLabel.text = "Availability Date: " + availabilityDate.description
+        availabilityDateLabel.text = getAvailabilityDateText()
       }
     } else {
       let seconds = 3
@@ -122,7 +122,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
 
     // adding title, subtitle, body and badge
     content.title = "Book Title Ready to Check Out"
-    content.subtitle = "Availability Date: " + availabilityDate.description
+    content.subtitle = getAvailabilityDateText()
     content.body = "You'll Have the Option to Check Out Book from Here Later"
     content.badge = 1
 
@@ -133,6 +133,10 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
 
     // adding the notification to notification center
     UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+  }
+
+  private func getAvailabilityDateText() -> String {
+    return "Availability Date: " + availabilityDate.description
   }
 }
 
