@@ -109,18 +109,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificationCell" rowHeight="220" id="2ou-eN-pUB">
-                                <rect key="frame" x="0.0" y="28" width="414" height="220"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificationCell" id="2ou-eN-pUB">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2ou-eN-pUB" id="r3b-Yt-iQ5">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="219.66666666666666"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2ou-eN-pUB" id="r3b-Yt-iQ5">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something something" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcP-zK-gh0">
-                                            <rect key="frame" x="20" y="18.333333333333329" width="374" height="200"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="fPR-LB-uIn"/>
-                                            </constraints>
+                                            <rect key="frame" x="20" y="11" width="374" height="32.666666666666664"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -128,8 +125,8 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="zcP-zK-gh0" firstAttribute="leading" secondItem="r3b-Yt-iQ5" secondAttribute="leadingMargin" id="0R2-I5-OLt"/>
-                                        <constraint firstItem="zcP-zK-gh0" firstAttribute="bottom" secondItem="r3b-Yt-iQ5" secondAttribute="bottomMargin" id="MKc-dr-Z3d"/>
-                                        <constraint firstItem="zcP-zK-gh0" firstAttribute="top" secondItem="r3b-Yt-iQ5" secondAttribute="topMargin" constant="7" id="OaR-tB-aKs"/>
+                                        <constraint firstItem="zcP-zK-gh0" firstAttribute="bottom" secondItem="r3b-Yt-iQ5" secondAttribute="bottom" id="4Dp-FC-oLc"/>
+                                        <constraint firstItem="zcP-zK-gh0" firstAttribute="top" secondItem="r3b-Yt-iQ5" secondAttribute="topMargin" id="OaR-tB-aKs"/>
                                         <constraint firstItem="zcP-zK-gh0" firstAttribute="trailing" secondItem="r3b-Yt-iQ5" secondAttribute="trailingMargin" id="j5g-gd-nTb"/>
                                     </constraints>
                                 </tableViewCellContentView>

@@ -95,6 +95,29 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
 
   // MARK: helper functions
   func createNotification(days: Int = 0) -> Void {
+    // getting the notification trigger
+    // it will be called after X seconds or X many days
+    // no repeat
+    // change availabilityDate if necessary
+    var trigger: UNNotificationTrigger?
+    if days > 0 {
+      var futureDate = DateComponents()
+      futureDate.day = days
+      trigger = UNCalendarNotificationTrigger(dateMatching: futureDate, repeats: false)
+
+      let currentDate = Date()
+      var dateComponents = DateComponents()
+      dateComponents.day = days
+      if let newAvailabilityDate = Calendar.current.date(byAdding: dateComponents, to: currentDate) {
+        availabilityDate = newAvailabilityDate
+        availabilityDateLabel.text = "Availability Date: " + availabilityDate.description
+      }
+    } else {
+      let seconds = 3
+      trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds), repeats: false)
+    }
+
+    // create Notification content
     let content = UNMutableNotificationContent()
 
     // adding title, subtitle, body and badge
@@ -102,19 +125,6 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
     content.subtitle = "Availability Date: " + availabilityDate.description
     content.body = "You'll Have the Option to Check Out Book from Here Later"
     content.badge = 1
-
-    // getting the notification trigger
-    // it will be called after X seconds or X many days
-    // no repeat
-    var trigger: UNNotificationTrigger?
-    if days > 0 {
-      var futureDate = DateComponents()
-      futureDate.day = days
-      trigger = UNCalendarNotificationTrigger(dateMatching: futureDate, repeats: false)
-    } else {
-      let seconds = 3
-      trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds), repeats: false)
-    }
 
     // getting the notification request
     let request = UNNotificationRequest(identifier: "SimplyEIOSNotification_" + Date().description, content: content, trigger: trigger)
