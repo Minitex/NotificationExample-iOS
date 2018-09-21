@@ -16,6 +16,9 @@ class NotificationViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    self.tableView.rowHeight = UITableView.automaticDimension
+    self.tableView.estimatedRowHeight = UITableView.automaticDimension
+
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
 
@@ -44,9 +47,16 @@ class NotificationViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath)
-    cell.textLabel?.text = notificationRequests[indexPath.row]
 
+    //cell.textLabel?.text = notificationRequests[indexPath.row]
+    let label = cell.viewWithTag(1000) as! UILabel
+
+    label.text = notificationRequests[indexPath.row]
     return cell
+  }
+
+  override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+     return UITableView.automaticDimension
   }
   /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
