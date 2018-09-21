@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class NotificationTableViewController: UITableViewController {
+class NotificationViewController: UITableViewController {
 
   var notificationRequests: [String] = []
 

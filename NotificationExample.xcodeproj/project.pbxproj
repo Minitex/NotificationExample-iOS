@@ -14,7 +14,7 @@
 		520433E12149BBB3005715D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520433DF2149BBB3005715D7 /* LaunchScreen.storyboard */; };
 		520433EC2149BBB3005715D7 /* NotificationExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520433EB2149BBB3005715D7 /* NotificationExampleTests.swift */; };
 		520433F72149BBB3005715D7 /* NotificationExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520433F62149BBB3005715D7 /* NotificationExampleUITests.swift */; };
-		528352662154279B001526D8 /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528352652154279B001526D8 /* NotificationTableViewController.swift */; };
+		528352662154279B001526D8 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528352652154279B001526D8 /* NotificationViewController.swift */; };
 		52ECB00B2152A02F0065EEA7 /* ServerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ECB00A2152A02F0065EEA7 /* ServerData.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +49,7 @@
 		520433F22149BBB3005715D7 /* NotificationExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotificationExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		520433F62149BBB3005715D7 /* NotificationExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExampleUITests.swift; sourceTree = "<group>"; };
 		520433F82149BBB3005715D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		528352652154279B001526D8 /* NotificationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
+		528352652154279B001526D8 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		52ECB00A2152A02F0065EEA7 /* ServerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,7 +108,7 @@
 				520433DF2149BBB3005715D7 /* LaunchScreen.storyboard */,
 				520433E22149BBB3005715D7 /* Info.plist */,
 				52ECB00A2152A02F0065EEA7 /* ServerData.swift */,
-				528352652154279B001526D8 /* NotificationTableViewController.swift */,
+				528352652154279B001526D8 /* NotificationViewController.swift */,
 			);
 			path = NotificationExample;
 			sourceTree = "<group>";
@@ -264,7 +264,7 @@
 			files = (
 				52ECB00B2152A02F0065EEA7 /* ServerData.swift in Sources */,
 				520433D92149BBB2005715D7 /* MainViewController.swift in Sources */,
-				528352662154279B001526D8 /* NotificationTableViewController.swift in Sources */,
+				528352662154279B001526D8 /* NotificationViewController.swift in Sources */,
 				520433D72149BBB2005715D7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

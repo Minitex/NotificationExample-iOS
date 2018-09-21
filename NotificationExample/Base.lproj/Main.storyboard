@@ -103,7 +103,7 @@
         <!--Notification Table View Controller-->
         <scene sceneID="QWM-Mo-9IP">
             <objects>
-                <tableViewController id="Bm7-2r-iBL" userLabel="Notification Table View Controller" customClass="NotificationTableViewController" customModule="NotificationExample" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Bm7-2r-iBL" userLabel="Notification Table View Controller" customClass="NotificationViewController" customModule="NotificationExample" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nbI-pT-4af">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
